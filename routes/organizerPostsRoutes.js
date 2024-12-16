@@ -160,7 +160,7 @@ router.post('/updatePost/:id', authenticateUser, authenticateOrganizer, async (r
   }
 
   if(req.body.headCount){
-    if(typeof Number(headCount) !== "number") {
+    if(typeof Number(req.body.headCount) !== "number") {
       req.session.error = 'improper head count';
       return res.redirect(`/coordinatorProfile/${req.session.user.username}`);
     }
@@ -196,7 +196,7 @@ router.post('/updatePost/:id', authenticateUser, authenticateOrganizer, async (r
   }
 
   if(req.body.rsvpForm){
-    if(typeof req.body.rsvpForm !== 'string' || req.body.rsvpForm.trim() !== "yes" || req.body.rsvpForm.trim() !== "no") {
+    if(typeof req.body.rsvpForm !== 'string' || (req.body.rsvpForm.trim() !== "yes" && req.body.rsvpForm.trim() !== "no")) {
       req.session.error = 'improper rsvp selection';
       return res.redirect(`/coordinatorProfile/${req.session.user.username}`);
     }
