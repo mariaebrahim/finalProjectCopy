@@ -37,7 +37,7 @@ router.post('/create', authenticateUser, authenticateOrganizer, async (req, res)
     return res.redirect('/create');
   }
   
-  if(photo){
+  if(req.body.photo){
     if(!(/\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(req.body.photo))){
       req.session.error = 'improper photo';
       return res.redirect('/create');
@@ -61,7 +61,7 @@ router.post('/create', authenticateUser, authenticateOrganizer, async (req, res)
   }
 
   if(req.body.headCount){
-    if(typeof Number(headCount) !== "number") {
+    if(typeof Number(req.body.headCount) !== "number") {
       req.session.error = 'improper head count';
       return res.redirect('/create');
     }
@@ -97,7 +97,7 @@ router.post('/create', authenticateUser, authenticateOrganizer, async (req, res)
   }
 
   if(req.body.rsvpForm){
-    if(typeof req.body.rsvpForm !== 'string' || req.body.rsvpForm.trim() !== "yes" || req.body.rsvpForm.trim() !== "no") {
+    if(typeof req.body.rsvpForm !== 'string' || (req.body.rsvpForm.trim() !== "yes" && req.body.rsvpForm.trim() !== "no")) {
       req.session.error = 'improper rsvp selection';
       return res.redirect('/create');
     }

@@ -99,13 +99,13 @@ if (signinForm) {
         let err = document.getElementById("err");
             err.textContent = "";
         postForm.addEventListener('submit', async(e) => {
-            const description = document.getElementById('description').value.trim();
-            const photo = document.getElementById('photo').value.trim();
-            const headCount = document.getElementById('headCount').value.trim();
-            const time = document.getElementById('time').value.trim();
-            const date = document.getElementById('date').value.trim();
-            const location = document.getElementById('location').value.trim();
-            const rsvpForm = document.getElementById('rsvpForm').value.trim();
+            let description = document.getElementById('description').value.trim();
+            let photo = document.getElementById('photo').value.trim();
+            let headCount = document.getElementById('headCount').value.trim();
+            let time = document.getElementById('time').value.trim();
+            let date = document.getElementById('date').value.trim();
+            let location = document.getElementById('location').value.trim();
+            let rsvpForm = document.getElementById('rsvpForm').value.trim();
 
 
             try{
@@ -178,8 +178,8 @@ if (signinForm) {
         let err = document.getElementById("err");
         err.textContent = "";
         postFormAttendee.addEventListener('submit', (e) => {
-            const description = document.getElementById('description').value.trim();
-            const photo = document.getElementById('photo').value.trim();
+            let description = document.getElementById('description').value.trim();
+            let photo = document.getElementById('photo').value.trim();
             try{
                 if (!description && !photo) throw new Error('Post must include a description or photo');
 
