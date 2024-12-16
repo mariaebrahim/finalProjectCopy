@@ -61,7 +61,7 @@ router.post('/create', authenticateUser, authenticateOrganizer, async (req, res)
   }
 
   if(req.body.headCount){
-    if(typeof Number(headCount) !== "number") {
+    if(typeof Number(req.body.headCount) !== "number") {
       req.session.error = 'improper head count';
       return res.redirect('/create');
     }
