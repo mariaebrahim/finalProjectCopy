@@ -1,0 +1,21 @@
+{
+  "name": "cs546finalproject",
+  "version": "1.0.0",
+  "description": "Final Project for CS546",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "seed": "node ./seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Group 27",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "mongodb": "^6.11.0",
+    "xss": "^1.0.15"
+  }
+}
