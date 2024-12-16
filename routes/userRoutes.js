@@ -160,8 +160,7 @@ router.route('/rsvpForm').post(async (req, res, next) => {
     try {
         const organizerPostCollection = await organizerPosts();
         const foundOrganizer = await organizerPostCollection.findOne(
-            {userName: eventOrganizerName},
-            {eventTitle: eventTitle}
+            {$and: [{userName: eventOrganizerName}, {eventTitle: eventTitle}]}
         )
         if (!foundOrganizer) {
             req.session.error = 'Organizer not found.';
