@@ -37,7 +37,7 @@ router.post('/create', authenticateUser, authenticateOrganizer, async (req, res)
     return res.redirect('/create');
   }
   
-  if(photo){
+  if(req.body.photo){
     if(!(/\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(req.body.photo))){
       req.session.error = 'improper photo';
       return res.redirect('/create');
